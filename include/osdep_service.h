@@ -1,4 +1,4 @@
-/******************************************************************************
+#include <linux/signal.h> /******************************************************************************
  *
  * Copyright(c) 2007 - 2011 Realtek Corporation. All rights reserved.
  *                                        
@@ -35,6 +35,11 @@
 #undef _FALSE
 #define _FALSE		0
 	
+#include <linux/signal.h>
+#include <linux/version.h>
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
+	#include <linux/sched/signal.h>
+#endif
 
 #ifdef PLATFORM_FREEBSD
 #include <sys/cdefs.h>
